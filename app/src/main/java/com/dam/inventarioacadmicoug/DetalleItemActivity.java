@@ -1,7 +1,5 @@
 package com.dam.inventarioacadmicoug;
-
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -50,12 +48,27 @@ public class DetalleItemActivity extends AppCompatActivity {
         String observacion = intent.getStringExtra("observacion");
         String fecha = intent.getStringExtra("fecha");
 
-        tvNombre.setText("Nombre: " + nombre);
-        tvCategoria.setText("Categoría: " + categoria);
-        tvCantidad.setText("Cantidad: " + cantidad);
-        tvUbicacion.setText("Ubicación: " + ubicacion);
-        tvObservacion.setText("Observación: " + observacion);
-        tvFecha.setText("Fecha: " + fecha);
+        tvNombre.setText(getString(R.string.txt_nombre) + " " + nombre);
+
+        tvCategoria.setText(
+                getString(R.string.txt_categoria) + " " + categoria
+        );
+
+        tvCantidad.setText(
+                getString(R.string.txt_cantidad) + " " + cantidad
+        );
+
+        tvUbicacion.setText(
+                getString(R.string.txt_ubicacion) + " " + ubicacion
+        );
+
+        tvObservacion.setText(
+                getString(R.string.txt_observacion) + " " + observacion
+        );
+
+        tvFecha.setText(
+                getString(R.string.txt_fecha) + " " + fecha
+        );
 
         btnVolver.setOnClickListener(v -> finish());
 
@@ -86,9 +99,13 @@ public class DetalleItemActivity extends AppCompatActivity {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this);
 
-        builder.setTitle("Confirmar eliminación");
+        builder.setTitle(
+                getString(R.string.dialogo_eliminar_titulo)
+        );
 
-        builder.setMessage("¿Desea eliminar este elemento?");
+        builder.setMessage(
+                getString(R.string.dialogo_eliminar_mensaje)
+        );
 
         builder.setPositiveButton("Sí", (dialog, which) -> {
 
@@ -96,7 +113,7 @@ public class DetalleItemActivity extends AppCompatActivity {
 
             Toast.makeText(
                     this,
-                    "Elemento eliminado",
+                    getString(R.string.toast_eliminado),
                     Toast.LENGTH_SHORT
             ).show();
 
