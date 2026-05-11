@@ -1,36 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="detalle_titulo">Detalle del Item</string>
-
     <string name="btn_editar">Editar</string>
-
     <string name="btn_eliminar">Eliminar</string>
-
     <string name="btn_volver">Volver</string>
-
     <string name="txt_nombre">Nombre:</string>
-
     <string name="txt_categoria">Categoría:</string>
-
     <string name="txt_cantidad">Cantidad:</string>
-
     <string name="txt_ubicacion">Ubicación:</string>
-
     <string name="txt_observacion">Observación:</string>
-
     <string name="txt_fecha">Fecha:</string>
-
     <string name="dialogo_eliminar_titulo">
         Confirmar eliminación
     </string>
-
     <string name="dialogo_eliminar_mensaje">
         ¿Desea eliminar este elemento?
     </string>
-
     <string name="toast_eliminado">
         Elemento eliminado
     </string>
-
 </resources>
