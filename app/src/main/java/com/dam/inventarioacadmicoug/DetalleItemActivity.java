@@ -173,6 +173,7 @@ public class DetalleItemActivity extends AppCompatActivity {
 
         builder.setNegativeButton("No", null);
 
+
         builder.show();
     }
 }
