@@ -1,3 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Inventario Académico UG</string>
+<!-- App -->
+<string name="app_name">Inventario Académico UG</string>
+
+<!-- MainActivity -->
+<string name="titulo_app">Inventario Académico UG</string>
+<string name="saludo_default">Bienvenido</string>
+<string name="btn_registrar">Registrar Elemento</string>
+<string name="btn_listar">Ver Inventario</string>
+<string name="btn_preferencias">Preferencias</string>
+<string name="btn_reporte">Generar Reporte</string>
+<string name="btn_web_ug">Abrir Web UG</string>
+
+<!-- PreferenciasActivity -->
+<string name="titulo_preferencias">Preferencias</string>
+<string name="hint_nombre_estudiante">Tu nombre completo</string>
+<string name="hint_paralelo">Paralelo (ej: SW-1-1)</string>
+<string name="label_mostrar_saludo">Mostrar saludo al iniciar</string>
+<string name="btn_guardar_preferencias">Guardar Preferencias</string>
+<string name="msg_preferencias_guardadas">Preferencias guardadas correctamente</string>
+<string name="msg_nombre_requerido">Ingresa tu nombre para guardar</string>
+
+<!-- FormItemActivity -->
+<string name="titulo_registrar">Registrar Elemento</string>
+<string name="hint_nombre">Nombre del elemento</string>
+<string name="hint_categoria">Categoría</string>
+<string name="hint_cantidad">Cantidad</string>
+<string name="hint_ubicacion">Ubicación (opcional)</string>
+<string name="hint_observacion">Observación (opcional)</string>
+<string name="btn_guardar">Guardar</string>
+<string name="btn_cancelar">Cancelar</string>
+
+<!-- ListaItemsActivity -->
+<string name="titulo_lista">Inventario</string>
+<string name="hint_buscar">Buscar por nombre o categoría...</string>
+<string name="btn_buscar">Buscar</string>
+<string name="lista_vacia">No hay elementos registrados</string>
+
+<!-- DetalleItemActivity -->
+<string name="titulo_detalle">Detalle del Elemento</string>
+<string name="btn_editar">Editar</string>
+<string name="btn_eliminar">Eliminar</string>
+<string name="btn_volver">Volver</string>
+<string name="dialogo_confirmar_eliminacion">¿Eliminar este elemento?</string>
+<string name="dialogo_mensaje_eliminacion">Esta acción no se puede deshacer.</string>
+<string name="dialogo_si">Sí, eliminar</string>
+<string name="dialogo_no">Cancelar</string>
+
+<!-- Reporte -->
+<string name="btn_compartir">Compartir Reporte</string>
+<string name="titulo_compartir">Compartir reporte con...</string>
+<string name="msg_reporte_generado">Reporte generado correctamente</string>
+<string name="msg_error_reporte">Error al generar el reporte</string>
+
+<!-- Categorías (para Spinner) -->
+<string-array name="categorias">
+    <item>Libro</item>
+    <item>Cuaderno</item>
+    <item>Equipo</item>
+    <item>Accesorio</item>
+    <item>Herramienta</item>
+    <item>Material de laboratorio</item>
+    <item>Otro</item>
+</string-array>
 </resources>

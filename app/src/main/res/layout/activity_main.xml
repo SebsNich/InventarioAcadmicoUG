@@ -1,19 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="@color/ug_azul_reflex">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/ug_azul_reflex"
+        android:paddingTop="36dp"
+        android:paddingBottom="@dimen/spacing_lg"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingEnd="@dimen/spacing_md">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNIVERSIDAD DE GUAYAQUIL"
+            android:textColor="@color/ug_azul_reflex"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_badge_yellow"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_marginBottom="@dimen/spacing_sm"/>
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo_ug"
+            android:background="@drawable/bg_logo_circle"
+            android:padding="@dimen/spacing_lg"
+            android:layout_marginBottom="@dimen/spacing_sm"
+            android:contentDescription="@string/app_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_app"
+            android:textColor="@color/white"
+            android:textSize="@dimen/subtitle_size"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvSaludo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/saludo_default"
+            android:textColor="@color/ug_azul_suave"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_sm">
+
+                <LinearLayout
+                    android:id="@+id/btnRegistrar"
+                    style="@style/Widget.MaterialComponents.CardView"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_dark"
+                    android:layout_marginEnd="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_add_box" android:layout_marginBottom="@dimen/spacing_sm"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_registrar" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnListar"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_dark"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_inventory" android:layout_marginBottom="@dimen/spacing_sm"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_listar" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_sm">
+
+                <LinearLayout
+                    android:id="@+id/btnPreferencias"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_dark"
+                    android:layout_marginEnd="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_settings" android:layout_marginBottom="@dimen/spacing_sm"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_preferencias" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnReporte"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_card_dark"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp" android:src="@drawable/ic_description" android:layout_marginBottom="@dimen/spacing_sm"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_reporte" android:textColor="@color/white" android:textSize="11sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnWebUG"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_min_height"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/bg_btn_amarillo"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="@dimen/spacing_sm">
+                <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_language" android:layout_marginEnd="@dimen/spacing_sm"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_web_ug" android:textColor="@color/ug_azul_reflex" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

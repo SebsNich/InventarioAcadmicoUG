@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.InventarioAcadémicoUG" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+
+        <item name="colorPrimary">@color/ug_azul_reflex</item>
+        <item name="colorPrimaryVariant">@color/ug_azul_marino</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/ug_amarillo</item>
+        <item name="colorSecondaryVariant">@color/ug_amarillo_dark</item>
+        <item name="colorOnSecondary">@color/ug_azul_reflex</item>
+
+        <item name="android:windowBackground">@color/ug_fondo</item>
+        <item name="android:statusBarColor">@color/ug_azul_reflex</item>
+
+        <item name="colorControlActivated">@color/ug_azul_reflex</item>
+        <item name="colorControlHighlight">@color/ug_azul_suave</item>
+
+    </style>
+</resources>
