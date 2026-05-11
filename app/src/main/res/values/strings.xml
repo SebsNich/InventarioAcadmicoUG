@@ -34,36 +34,18 @@
     <string name="err_numero_invalido">Ingrese un número válido</string>
     <string name="msg_guardado_exito">Elemento registrado correctamente</string>
 
-<!-- ListaItemsActivity -->
-<string name="titulo_lista">Inventario</string>
-<string name="hint_buscar">Buscar por nombre o categoría...</string>
-<string name="btn_buscar">Buscar</string>
-<string name="lista_vacia">No hay elementos registrados</string>
+    <!-- Reporte -->
+    <string name="msg_reporte_generado">Reporte generado correctamente</string>
+    <string name="msg_error_reporte">Error al generar el reporte</string>
 
-<!-- DetalleItemActivity -->
-<string name="titulo_detalle">Detalle del Elemento</string>
-<string name="btn_editar">Editar</string>
-<string name="btn_eliminar">Eliminar</string>
-<string name="btn_volver">Volver</string>
-<string name="dialogo_confirmar_eliminacion">¿Eliminar este elemento?</string>
-<string name="dialogo_mensaje_eliminacion">Esta acción no se puede deshacer.</string>
-<string name="dialogo_si">Sí, eliminar</string>
-<string name="dialogo_no">Cancelar</string>
+    <!-- Badge header -->
+    <string name="badge_universidad">UNIVERSIDAD DE GUAYAQUIL</string>
 
-<!-- Reporte -->
-<string name="btn_compartir">Compartir Reporte</string>
-<string name="titulo_compartir">Compartir reporte con...</string>
-<string name="msg_reporte_generado">Reporte generado correctamente</string>
-<string name="msg_error_reporte">Error al generar el reporte</string>
+    <!-- Lista -->
+    <string name="titulo_lista">Inventario</string>
+    <string name="hint_buscar">Buscar por nombre o categoría...</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="lista_vacia">No hay elementos registrados</string>
+    <string name="btn_cancelar">Cancelar</string>
 
-<!-- Categorías (para Spinner) -->
-<string-array name="categorias">
-    <item>Libro</item>
-    <item>Cuaderno</item>
-    <item>Equipo</item>
-    <item>Accesorio</item>
-    <item>Herramienta</item>
-    <item>Material de laboratorio</item>
-    <item>Otro</item>
-</string-array>
 </resources>
