@@ -1,0 +1,9 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center_horizontal" android:padding="16dp">
+    <TextView android:id="@+id/tituloRegistro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/titulo_registro" android:textSize="24sp" android:textStyle="bold" android:gravity="center" android:padding="20dp"/>
+    <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_nombre" android:minHeight="48dp"/>
+    <EditText android:id="@+id/etCategoria" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_categoria" android:minHeight="48dp"/>
+    <EditText android:id="@+id/etCantidad" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_cantidad" android:inputType="number" android:minHeight="48dp"/>
+    <EditText android:id="@+id/etUbicacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_ubicacion" android:minHeight="48dp"/>
+    <EditText android:id="@+id/etObservacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/hint_observacion" android:minHeight="48dp"/>
+    <Button android:id="@+id/btnGuardar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btn_guardar" android:minHeight="20dp"/>
+</LinearLayout>
