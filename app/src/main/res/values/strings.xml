@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< feature/inicio-preferencias-steven
 <!-- App -->
 <string name="app_name">Inventario Académico UG</string>
 
@@ -22,6 +23,9 @@
 <string name="msg_nombre_requerido">Ingresa tu nombre para guardar</string>
 
 <!-- FormItemActivity -->
+=======
+    <string name="app_name">Inventario UG</string>
+>>>>>>> main
     <string name="titulo_registro">FORMULARIO DE REGISTRO</string>
     <string name="hint_nombre">Nombre del elemento</string>
     <string name="hint_categoria">Categoría</string>
@@ -33,6 +37,7 @@
     <string name="err_cantidad">La cantidad debe ser mayor a cero</string>
     <string name="err_numero_invalido">Ingrese un número válido</string>
     <string name="msg_guardado_exito">Elemento registrado correctamente</string>
+<<<<<<< feature/inicio-preferencias-steven
 
     <!-- Reporte -->
     <string name="msg_reporte_generado">Reporte generado correctamente</string>
@@ -48,4 +53,6 @@
     <string name="lista_vacia">No hay elementos registrados</string>
     <string name="btn_cancelar">Cancelar</string>
 
+=======
+>>>>>>> main
 </resources>
