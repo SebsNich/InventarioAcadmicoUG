@@ -22,14 +22,17 @@
 <string name="msg_nombre_requerido">Ingresa tu nombre para guardar</string>
 
 <!-- FormItemActivity -->
-<string name="titulo_registrar">Registrar Elemento</string>
-<string name="hint_nombre">Nombre del elemento</string>
-<string name="hint_categoria">Categoría</string>
-<string name="hint_cantidad">Cantidad</string>
-<string name="hint_ubicacion">Ubicación (opcional)</string>
-<string name="hint_observacion">Observación (opcional)</string>
-<string name="btn_guardar">Guardar</string>
-<string name="btn_cancelar">Cancelar</string>
+    <string name="titulo_registro">FORMULARIO DE REGISTRO</string>
+    <string name="hint_nombre">Nombre del elemento</string>
+    <string name="hint_categoria">Categoría</string>
+    <string name="hint_cantidad">Cantidad</string>
+    <string name="hint_ubicacion">Ubicación (Opcional)</string>
+    <string name="hint_observacion">Observación (Opcional)</string>
+    <string name="btn_guardar">Guardar Registro</string>
+    <string name="err_obligatorio">Este campo es obligatorio</string>
+    <string name="err_cantidad">La cantidad debe ser mayor a cero</string>
+    <string name="err_numero_invalido">Ingrese un número válido</string>
+    <string name="msg_guardado_exito">Elemento registrado correctamente</string>
 
 <!-- ListaItemsActivity -->
 <string name="titulo_lista">Inventario</string>
