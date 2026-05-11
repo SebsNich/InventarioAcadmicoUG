@@ -36,9 +36,14 @@ public class DetalleItemActivity extends AppCompatActivity {
         btnEditar = findViewById(R.id.btnEditar);
         btnEliminar = findViewById(R.id.btnEliminar);
         btnVolver = findViewById(R.id.btnVolver);
-        btnGuardarInterno = findViewById(R.id.btnGuardarInterno);
-        btnExportar = findViewById(R.id.btnExportar);
-        btnCompartir = findViewById(R.id.btnCompartir);
+        btnGuardarInterno =
+                findViewById(R.id.btnGuardarInterno);
+
+        btnExportar =
+                findViewById(R.id.btnExportar);
+
+        btnCompartir =
+                findViewById(R.id.btnCompartir);
 
         dbHelper = new InventarioDbHelper(this);
 
@@ -52,14 +57,6 @@ public class DetalleItemActivity extends AppCompatActivity {
         String ubicacion = intent.getStringExtra("ubicacion");
         String observacion = intent.getStringExtra("observacion");
         String fecha = intent.getStringExtra("fecha");
-        String reporte =
-                "REPORTE INVENTARIO\n\n" +
-                        "Nombre: " + nombre + "\n" +
-                        "Categoría: " + categoria + "\n" +
-                        "Cantidad: " + cantidad + "\n" +
-                        "Ubicación: " + ubicacion + "\n" +
-                        "Observación: " + observacion + "\n" +
-                        "Fecha: " + fecha;
 
         tvNombre.setText(getString(R.string.txt_nombre) + " " + nombre);
 
@@ -84,43 +81,6 @@ public class DetalleItemActivity extends AppCompatActivity {
         );
 
         btnVolver.setOnClickListener(v -> finish());
-        btnGuardarInterno.setOnClickListener(v -> {
-
-            String mensaje =
-                    ArchivoHelper.guardarResumenInterno(
-                            this,
-                            reporte
-                    );
-
-            Toast.makeText(
-                    this,
-                    mensaje,
-                    Toast.LENGTH_LONG
-            ).show();
-        });
-
-
-        btnExportar.setOnClickListener(v -> {
-
-            String mensaje =
-                    ArchivoHelper.exportarReporteExterno(
-                            this,
-                            reporte
-                    );
-
-            Toast.makeText(
-                    this,
-                    mensaje,
-                    Toast.LENGTH_LONG
-            ).show();
-        });
-
-
-        btnCompartir.setOnClickListener(v -> {
-
-            ArchivoHelper.compartirReporte(this);
-
-        });
 
         btnEditar.setOnClickListener(v -> {
 
@@ -140,6 +100,52 @@ public class DetalleItemActivity extends AppCompatActivity {
 
         });
 
+        String reporte =
+                "REPORTE INVENTARIO\n\n" +
+                        "Nombre: " + nombre + "\n" +
+                        "Categoría: " + categoria + "\n" +
+                        "Cantidad: " + cantidad + "\n" +
+                        "Ubicación: " + ubicacion + "\n" +
+                        "Observación: " + observacion + "\n" +
+                        "Fecha: " + fecha;
+
+        btnGuardarInterno.setOnClickListener(v -> {
+
+            String resultado =
+                    ArchivoHelper.guardarResumenInterno(
+                            this,
+                            reporte
+                    );
+
+            Toast.makeText(
+                    this,
+                    resultado,
+                    Toast.LENGTH_SHORT
+            ).show();
+
+        });
+
+        btnExportar.setOnClickListener(v -> {
+
+            String resultado =
+                    ArchivoHelper.exportarReporteExterno(
+                            this,
+                            reporte
+                    );
+
+            Toast.makeText(
+                    this,
+                    resultado,
+                    Toast.LENGTH_SHORT
+            ).show();
+
+        });
+
+        btnCompartir.setOnClickListener(v -> {
+
+            ArchivoHelper.compartirReporte(this);
+
+        });
         btnEliminar.setOnClickListener(v -> mostrarDialogoEliminar());
 
     }
@@ -172,7 +178,6 @@ public class DetalleItemActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton("No", null);
-
 
         builder.show();
     }

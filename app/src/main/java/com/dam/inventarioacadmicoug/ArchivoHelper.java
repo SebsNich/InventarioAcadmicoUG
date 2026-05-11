@@ -11,9 +11,6 @@ import java.io.FileOutputStream;
 
 public class ArchivoHelper {
 
-    // =========================
-    // GUARDAR EN MEMORIA INTERNA
-    // =========================
     public static String guardarResumenInterno(
             Context context,
             String contenido
@@ -40,10 +37,6 @@ public class ArchivoHelper {
         }
     }
 
-
-    // =========================
-    // EXPORTAR REPORTE
-    // =========================
     public static String exportarReporteExterno(
             Context context,
             String contenido
@@ -79,10 +72,6 @@ public class ArchivoHelper {
         }
     }
 
-
-    // =========================
-    // COMPARTIR REPORTE
-    // =========================
     public static void compartirReporte(Context context) {
 
         try {
@@ -129,5 +118,4 @@ public class ArchivoHelper {
             e.printStackTrace();
         }
     }
-
 }
