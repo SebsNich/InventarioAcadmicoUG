@@ -24,16 +24,15 @@ public class ArchivoHelper {
             );
 
             fos.write(contenido.getBytes());
-
             fos.close();
 
-            return "Archivo interno guardado correctamente";
+            return context.getString(R.string.archivo_interno_ok);
 
         } catch (Exception e) {
 
             e.printStackTrace();
 
-            return "Error al guardar archivo interno";
+            return context.getString(R.string.archivo_interno_error);
         }
     }
 
@@ -47,7 +46,7 @@ public class ArchivoHelper {
             File carpeta = context.getExternalFilesDir(null);
 
             if (carpeta == null) {
-                return "No existe memoria externa";
+                return context.getString(R.string.memoria_externa_error);
             }
 
             File archivo = new File(
@@ -59,16 +58,15 @@ public class ArchivoHelper {
                     new FileOutputStream(archivo);
 
             fos.write(contenido.getBytes());
-
             fos.close();
 
-            return "Reporte exportado correctamente";
+            return context.getString(R.string.reporte_exportado_ok);
 
         } catch (Exception e) {
 
             e.printStackTrace();
 
-            return "Error al exportar reporte";
+            return context.getString(R.string.reporte_exportado_error);
         }
     }
 
@@ -110,7 +108,7 @@ public class ArchivoHelper {
             context.startActivity(
                     Intent.createChooser(
                             intent,
-                            "Compartir Reporte"
+                            context.getString(R.string.compartir_reporte_titulo)
                     )
             );
 

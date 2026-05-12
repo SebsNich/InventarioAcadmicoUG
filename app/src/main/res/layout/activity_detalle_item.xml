@@ -86,21 +86,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Guardar Interno"/>
+            android:text="@string/btn_guardar_interno"/>
 
         <Button
             android:id="@+id/btnExportar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Exportar Reporte"/>
+            android:text="@string/btn_exportar_reporte"/>
 
         <Button
             android:id="@+id/btnCompartir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Compartir Reporte"/>
+            android:text="@string/btn_compartir_reporte"/>
     </LinearLayout>
 
 </ScrollView>
