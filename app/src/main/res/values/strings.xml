@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< feature/inicio-preferencias-steven
-<!-- App -->
-<string name="app_name">Inventario Académico UG</string>
 
-<!-- MainActivity -->
-<string name="titulo_app">Inventario Académico UG</string>
-<string name="saludo_default">Bienvenido</string>
-<string name="btn_registrar">Registrar Elemento</string>
-<string name="btn_listar">Ver Inventario</string>
-<string name="btn_preferencias">Preferencias</string>
-<string name="btn_reporte">Generar Reporte</string>
-<string name="btn_web_ug">Abrir Web UG</string>
+    <!-- App -->
+    <string name="app_name">Inventario Académico UG</string>
 
-<!-- PreferenciasActivity -->
-<string name="titulo_preferencias">Preferencias</string>
-<string name="hint_nombre_estudiante">Tu nombre completo</string>
-<string name="hint_paralelo">Paralelo (ej: SW-1-1)</string>
-<string name="label_mostrar_saludo">Mostrar saludo al iniciar</string>
-<string name="btn_guardar_preferencias">Guardar Preferencias</string>
-<string name="msg_preferencias_guardadas">Preferencias guardadas correctamente</string>
-<string name="msg_nombre_requerido">Ingresa tu nombre para guardar</string>
+    <!-- MainActivity -->
+    <string name="titulo_app">Inventario Académico UG</string>
+    <string name="badge_universidad">UNIVERSIDAD DE GUAYAQUIL</string>
+    <string name="saludo_default">Bienvenido</string>
+    <string name="btn_registrar">Registrar Elemento</string>
+    <string name="btn_listar">Ver Inventario</string>
+    <string name="btn_preferencias">Preferencias</string>
+    <string name="btn_reporte">Generar Reporte</string>
+    <string name="btn_web_ug">Abrir Web UG</string>
+    <string name="msg_reporte_generado">Reporte generado correctamente</string>
+    <string name="msg_error_reporte">Error al generar el reporte</string>
 
-<!-- FormItemActivity -->
-=======
-    <string name="app_name">Inventario UG</string>
->>>>>>> main
+    <!-- PreferenciasActivity -->
+    <string name="titulo_preferencias">Preferencias</string>
+    <string name="subtitulo_preferencias">Personaliza tu experiencia académica</string>
+    <string name="label_nombre_estudiante">Nombre del estudiante</string>
+    <string name="label_paralelo">Paralelo</string>
+    <string name="hint_nombre_estudiante">Tu nombre completo</string>
+    <string name="hint_paralelo">Paralelo (ej: SW-1-1)</string>
+    <string name="label_mostrar_saludo">Mostrar saludo al iniciar</string>
+    <string name="btn_guardar_preferencias">Guardar Preferencias</string>
+    <string name="msg_preferencias_guardadas">Preferencias guardadas correctamente</string>
+    <string name="msg_nombre_requerido">Ingresa tu nombre para guardar</string>
+    <string name="status_listo">Listo para actualizar preferencias</string>
+
+    <!-- FormItemActivity (de main, no tocar) -->
     <string name="titulo_registro">FORMULARIO DE REGISTRO</string>
     <string name="hint_nombre">Nombre del elemento</string>
     <string name="hint_categoria">Categoría</string>
@@ -33,26 +37,47 @@
     <string name="hint_ubicacion">Ubicación (Opcional)</string>
     <string name="hint_observacion">Observación (Opcional)</string>
     <string name="btn_guardar">Guardar Registro</string>
+    <string name="btn_cancelar">Cancelar</string>
     <string name="err_obligatorio">Este campo es obligatorio</string>
     <string name="err_cantidad">La cantidad debe ser mayor a cero</string>
     <string name="err_numero_invalido">Ingrese un número válido</string>
     <string name="msg_guardado_exito">Elemento registrado correctamente</string>
-<<<<<<< feature/inicio-preferencias-steven
 
-    <!-- Reporte -->
-    <string name="msg_reporte_generado">Reporte generado correctamente</string>
-    <string name="msg_error_reporte">Error al generar el reporte</string>
-
-    <!-- Badge header -->
-    <string name="badge_universidad">UNIVERSIDAD DE GUAYAQUIL</string>
-
-    <!-- Lista -->
+    <!-- ListaItemsActivity -->
     <string name="titulo_lista">Inventario</string>
     <string name="hint_buscar">Buscar por nombre o categoría...</string>
     <string name="btn_buscar">Buscar</string>
     <string name="lista_vacia">No hay elementos registrados</string>
-    <string name="btn_cancelar">Cancelar</string>
 
-=======
->>>>>>> main
+    <!-- ArchivoHelper / Reporte (de main, no tocar) -->
+    <string name="btn_guardar_interno">Guardar Interno</string>
+    <string name="btn_exportar_reporte">Exportar Reporte</string>
+    <string name="btn_compartir_reporte">Compartir Reporte</string>
+    <string name="archivo_interno_ok">Archivo interno guardado correctamente</string>
+    <string name="archivo_interno_error">Error al guardar archivo interno</string>
+    <string name="memoria_externa_error">No existe memoria externa</string>
+    <string name="reporte_exportado_ok">Reporte exportado correctamente</string>
+    <string name="reporte_exportado_error">Error al exportar reporte</string>
+    <string name="compartir_reporte_titulo">Compartir Reporte</string>
+    <string name="reporte_titulo">REPORTE INVENTARIO</string>
+    <string name="reporte_nombre">Nombre: </string>
+    <string name="reporte_categoria">Categoría: </string>
+    <string name="reporte_cantidad">Cantidad: </string>
+    <string name="reporte_ubicacion">Ubicación: </string>
+    <string name="reporte_observacion">Observación: </string>
+    <string name="reporte_fecha">Fecha: </string>
+    <string name="opcion_si">Sí</string>
+    <string name="opcion_no">No</string>
+
+    <!-- Categorías para Spinner -->
+    <string-array name="categorias">
+        <item>Libro</item>
+        <item>Cuaderno</item>
+        <item>Equipo</item>
+        <item>Accesorio</item>
+        <item>Herramienta</item>
+        <item>Material de laboratorio</item>
+        <item>Otro</item>
+    </string-array>
+
 </resources>

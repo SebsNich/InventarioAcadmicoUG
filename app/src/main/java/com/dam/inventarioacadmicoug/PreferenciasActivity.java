@@ -4,9 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PreferenciasActivity extends AppCompatActivity {
@@ -14,7 +12,7 @@ public class PreferenciasActivity extends AppCompatActivity {
     // EditTexts y controles
     private EditText etNombreEstudiante;
     private EditText etParalelo;
-    private Switch   switchSaludo;
+    private androidx.appcompat.widget.SwitchCompat switchSaludo;
     private Button   btnGuardarPreferencias;
 
     @Override
@@ -35,9 +33,7 @@ public class PreferenciasActivity extends AppCompatActivity {
         btnGuardarPreferencias.setOnClickListener(v -> guardarPreferencias());
     }
 
-    /**
-     * Lee SharedPreferences y llena los campos con los datos previos.
-     */
+
     private void cargarPreferencias() {
         SharedPreferences prefs = getSharedPreferences(
                 MainActivity.PREFS_NOMBRE, MODE_PRIVATE);
@@ -51,9 +47,7 @@ public class PreferenciasActivity extends AppCompatActivity {
         switchSaludo.setChecked(saludo);
     }
 
-    /**
-     * Valida que el nombre no esté vacío y guarda en SharedPreferences.
-     */
+
     private void guardarPreferencias() {
         String nombre   = etNombreEstudiante.getText().toString().trim();
         String paralelo = etParalelo.getText().toString().trim();

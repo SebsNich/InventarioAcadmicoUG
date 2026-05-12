@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,18 +22,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/titulo_preferencias"
-                android:textColor="@android:color/white"
+                android:textColor="@color/white"
                 android:textSize="@dimen/title_size"
                 android:layout_marginTop="15dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xs"
-                android:text="Personaliza tu experiencia académica"
+                android:text="@string/subtitulo_preferencias"
                 android:textColor="@color/ug_azul_suave"
-                android:textSize="@dimen/subtitle_size" />
+                android:textSize="@dimen/subtitle_size"/>
         </LinearLayout>
 
         <LinearLayout
@@ -52,10 +53,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nombre del estudiante"
+                    android:text="@string/label_nombre_estudiante"
                     android:textColor="@color/ug_azul_marino"
                     android:textSize="@dimen/label_size"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/etNombreEstudiante"
@@ -64,20 +65,21 @@
                     android:layout_marginTop="@dimen/spacing_sm"
                     android:background="@drawable/bg_edit_text"
                     android:hint="@string/hint_nombre_estudiante"
+                    android:autofillHints="name"
                     android:textColorHint="@color/ug_azul_suave"
                     android:inputType="textPersonName"
                     android:minHeight="@dimen/button_min_height"
                     android:padding="12dp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_lg"
-                    android:text="Paralelo"
+                    android:text="@string/label_paralelo"
                     android:textColor="@color/ug_azul_marino"
                     android:textSize="@dimen/label_size"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <EditText
                     android:id="@+id/etParalelo"
@@ -86,21 +88,22 @@
                     android:layout_marginTop="@dimen/spacing_sm"
                     android:background="@drawable/bg_edit_text"
                     android:hint="@string/hint_paralelo"
+                    android:autofillHints="off"
                     android:textColorHint="@color/ug_azul_suave"
                     android:inputType="text"
                     android:minHeight="@dimen/button_min_height"
                     android:padding="12dp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"/>
 
-                <Switch
-                    android:id="@+id/switchSaludo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_lg"
-                    android:minHeight="@dimen/button_min_height"
-                    android:text="@string/label_mostrar_saludo"
-                    android:textColor="@color/ug_azul_marino"
-                    android:textSize="@dimen/body_size" />
+                <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchSaludo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:minHeight="@dimen/button_min_height"
+                android:text="@string/label_mostrar_saludo"
+                android:textColor="@color/ug_azul_marino"
+                android:textSize="@dimen/body_size"/>
 
                 <Button
                     android:id="@+id/btnGuardarPreferencias"
@@ -112,7 +115,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/ug_azul_reflex"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -124,10 +127,11 @@
                 android:background="@drawable/bg_card"
                 android:backgroundTint="@color/info_background"
                 android:padding="12dp"
-                android:text="Listo para actualizar preferencias"
+                android:text="@string/status_listo"
                 android:textColor="#1976D2"
                 android:textSize="12sp"
-                android:gravity="center" />
+                android:gravity="center"/>
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
