@@ -11,4 +11,25 @@
     <string name="err_cantidad">La cantidad debe ser mayor a cero</string>
     <string name="err_numero_invalido">Ingrese un número válido</string>
     <string name="msg_guardado_exito">Elemento registrado correctamente</string>
+    <string name="btn_guardar_interno">Guardar Interno</string>
+    <string name="btn_exportar_reporte">Exportar Reporte</string>
+    <string name="btn_compartir_reporte">Compartir Reporte</string>
+
+    <string name="archivo_interno_ok">Archivo interno guardado correctamente</string>
+    <string name="archivo_interno_error">Error al guardar archivo interno</string>
+    <string name="memoria_externa_error">No existe memoria externa</string>
+    <string name="reporte_exportado_ok">Reporte exportado correctamente</string>
+    <string name="reporte_exportado_error">Error al exportar reporte</string>
+    <string name="compartir_reporte_titulo">Compartir Reporte</string>
+
+    <string name="reporte_titulo">REPORTE INVENTARIO</string>
+    <string name="reporte_nombre">Nombre: </string>
+    <string name="reporte_categoria">Categoría: </string>
+    <string name="reporte_cantidad">Cantidad: </string>
+    <string name="reporte_ubicacion">Ubicación: </string>
+    <string name="reporte_observacion">Observación: </string>
+    <string name="reporte_fecha">Fecha: </string>
+
+    <string name="opcion_si">Sí</string>
+    <string name="opcion_no">No</string>
 </resources>

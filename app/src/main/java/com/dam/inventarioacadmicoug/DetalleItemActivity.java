@@ -1,4 +1,5 @@
 package com.dam.inventarioacadmicoug;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ public class DetalleItemActivity extends AppCompatActivity {
             tvUbicacion, tvObservacion, tvFecha;
 
     private Button btnEditar, btnEliminar, btnVolver;
+    private Button btnGuardarInterno;
+    private Button btnExportar;
+    private Button btnCompartir;
 
     private InventarioDbHelper dbHelper;
 
@@ -35,6 +39,15 @@ public class DetalleItemActivity extends AppCompatActivity {
         btnEliminar = findViewById(R.id.btnEliminar);
         btnVolver = findViewById(R.id.btnVolver);
 
+        btnGuardarInterno =
+                findViewById(R.id.btnGuardarInterno);
+
+        btnExportar =
+                findViewById(R.id.btnExportar);
+
+        btnCompartir =
+                findViewById(R.id.btnCompartir);
+
         dbHelper = new InventarioDbHelper(this);
 
         Intent intent = getIntent();
@@ -48,7 +61,9 @@ public class DetalleItemActivity extends AppCompatActivity {
         String observacion = intent.getStringExtra("observacion");
         String fecha = intent.getStringExtra("fecha");
 
-        tvNombre.setText(getString(R.string.txt_nombre) + " " + nombre);
+        tvNombre.setText(
+                getString(R.string.txt_nombre) + " " + nombre
+        );
 
         tvCategoria.setText(
                 getString(R.string.txt_categoria) + " " + categoria
@@ -90,8 +105,56 @@ public class DetalleItemActivity extends AppCompatActivity {
 
         });
 
-        btnEliminar.setOnClickListener(v -> mostrarDialogoEliminar());
+        String reporte =
+                getString(R.string.reporte_titulo) + "\n\n" +
+                        getString(R.string.reporte_nombre) + nombre + "\n" +
+                        getString(R.string.reporte_categoria) + categoria + "\n" +
+                        getString(R.string.reporte_cantidad) + cantidad + "\n" +
+                        getString(R.string.reporte_ubicacion) + ubicacion + "\n" +
+                        getString(R.string.reporte_observacion) + observacion + "\n" +
+                        getString(R.string.reporte_fecha) + fecha;
 
+        btnGuardarInterno.setOnClickListener(v -> {
+
+            String resultado =
+                    ArchivoHelper.guardarResumenInterno(
+                            this,
+                            reporte
+                    );
+
+            Toast.makeText(
+                    this,
+                    resultado,
+                    Toast.LENGTH_SHORT
+            ).show();
+
+        });
+
+        btnExportar.setOnClickListener(v -> {
+
+            String resultado =
+                    ArchivoHelper.exportarReporteExterno(
+                            this,
+                            reporte
+                    );
+
+            Toast.makeText(
+                    this,
+                    resultado,
+                    Toast.LENGTH_SHORT
+            ).show();
+
+        });
+
+        btnCompartir.setOnClickListener(v -> {
+
+            ArchivoHelper.compartirReporte(this);
+
+        });
+
+        btnEliminar.setOnClickListener(
+                v -> mostrarDialogoEliminar()
+        );
     }
 
     private void mostrarDialogoEliminar() {
@@ -107,21 +170,26 @@ public class DetalleItemActivity extends AppCompatActivity {
                 getString(R.string.dialogo_eliminar_mensaje)
         );
 
-        builder.setPositiveButton("Sí", (dialog, which) -> {
+        builder.setPositiveButton(
+                getString(R.string.opcion_si),
+                (dialog, which) -> {
 
-            dbHelper.eliminarItem(idItem);
+                    dbHelper.eliminarItem(idItem);
 
-            Toast.makeText(
-                    this,
-                    getString(R.string.toast_eliminado),
-                    Toast.LENGTH_SHORT
-            ).show();
+                    Toast.makeText(
+                            this,
+                            getString(R.string.toast_eliminado),
+                            Toast.LENGTH_SHORT
+                    ).show();
 
-            finish();
+                    finish();
 
-        });
+                });
 
-        builder.setNegativeButton("No", null);
+        builder.setNegativeButton(
+                getString(R.string.opcion_no),
+                null
+        );
 
         builder.show();
     }

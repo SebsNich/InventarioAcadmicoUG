@@ -81,6 +81,26 @@
             android:text="@string/btn_volver"
             android:layout_marginTop="10dp" />
 
+        <Button
+            android:id="@+id/btnGuardarInterno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/btn_guardar_interno"/>
+
+        <Button
+            android:id="@+id/btnExportar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/btn_exportar_reporte"/>
+
+        <Button
+            android:id="@+id/btnCompartir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/btn_compartir_reporte"/>
     </LinearLayout>
 
 </ScrollView>
