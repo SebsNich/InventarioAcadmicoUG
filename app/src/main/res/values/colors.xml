@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta oficial Universidad de Guayaquil -->
+    <color name="ug_azul_reflex">#003087</color>
+    <color name="ug_azul_process">#0057A8</color>
+    <color name="ug_azul_marino">#1B3A6B</color>
+    <color name="ug_azul_claro">#5B9BD5</color>
+    <color name="ug_azul_suave">#8FAACC</color>
+    <color name="ug_amarillo">#F5C400</color>
+    <color name="ug_amarillo_dark">#B8920A</color>
+    <color name="ug_rojo">#C8102E</color>
+    <color name="ug_fondo">#F0F4F8</color>
+    <color name="info_background">#E3F2FD</color>
 </resources>
