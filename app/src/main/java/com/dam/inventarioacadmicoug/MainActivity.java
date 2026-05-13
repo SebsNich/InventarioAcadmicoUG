@@ -114,10 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         .append(" | Cant: ").append(item.getCantidad()).append("\n");
             }
 
-            // TODO: descomentar cuando Kleber termine ArchivoHelper
-            // ArchivoHelper archivoHelper = new ArchivoHelper(this);
-            // archivoHelper.guardarArchivoInterno(reporte.toString());
-            // archivoHelper.guardarArchivoExterno(reporte.toString());
+
 
             Toast.makeText(this, getString(R.string.msg_reporte_generado), Toast.LENGTH_LONG).show();
 

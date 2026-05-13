@@ -1,106 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/ug_fondo"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/detalle_titulo"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:id="@+id/tvNombre"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp" />
+            android:background="@color/ug_azul_reflex"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_xl">
 
-        <TextView
-            android:id="@+id/tvCategoria"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detalle_titulo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/subtitulo_detalle"
+                android:textColor="@color/ug_azul_suave"
+                android:textSize="@dimen/subtitle_size"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp" />
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
 
-        <TextView
-            android:id="@+id/tvCantidad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp" />
+            <!-- Tarjeta de datos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:elevation="2dp"
+                android:layout_marginBottom="@dimen/spacing_md">
 
-        <TextView
-            android:id="@+id/tvUbicacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp" />
+                <!-- Nombre -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_nombre"
+                    android:textColor="@color/ug_azul_suave"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
 
-        <TextView
-            android:id="@+id/tvObservacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp" />
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ug_azul_marino"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/spacing_md"/>
 
-        <TextView
-            android:id="@+id/tvFecha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp"
-            android:layout_marginBottom="20dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_categoria"
+                    android:textColor="@color/ug_azul_suave"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
 
-        <Button
-            android:id="@+id/btnEditar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_editar" />
+                <TextView
+                    android:id="@+id/tvCategoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ug_azul_marino"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="@dimen/spacing_md"/>
 
-        <Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_eliminar"
-            android:layout_marginTop="10dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_cantidad"
+                    android:textColor="@color/ug_azul_suave"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
 
-        <Button
-            android:id="@+id/btnVolver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_volver"
-            android:layout_marginTop="10dp" />
+                <TextView
+                    android:id="@+id/tvCantidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ug_azul_marino"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="@dimen/spacing_md"/>
 
-        <Button
-            android:id="@+id/btnGuardarInterno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/btn_guardar_interno"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_ubicacion"
+                    android:textColor="@color/ug_azul_suave"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
 
-        <Button
-            android:id="@+id/btnExportar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/btn_exportar_reporte"/>
+                <TextView
+                    android:id="@+id/tvUbicacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ug_azul_marino"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="@dimen/spacing_md"/>
 
-        <Button
-            android:id="@+id/btnCompartir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/btn_compartir_reporte"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_observacion"
+                    android:textColor="@color/ug_azul_suave"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
+
+                <TextView
+                    android:id="@+id/tvObservacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ug_azul_marino"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="@dimen/spacing_md"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_fecha"
+                    android:textColor="@color/ug_azul_suave"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"/>
+
+                <TextView
+                    android:id="@+id/tvFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/ug_azul_marino"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:layout_marginBottom="@dimen/spacing_sm">
+
+                <Button
+                    android:id="@+id/btnEditar"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_xs"
+                    android:background="@drawable/bg_btn_amarillo"
+                    android:text="@string/btn_editar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/ug_azul_reflex"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/btnEliminar"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:background="@drawable/bg_btn_rojo"
+                    android:text="@string/btn_eliminar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnGuardarInterno"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                android:background="@drawable/bg_card_dark"
+                android:text="@string/btn_guardar_interno"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnExportar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                android:background="@drawable/bg_card_dark"
+                android:text="@string/btn_exportar_reporte"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCompartir"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="@dimen/spacing_sm"
+                android:background="@drawable/bg_card_dark"
+                android:text="@string/btn_compartir_reporte"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_btn_outline"
+                android:text="@string/btn_volver"
+                android:textAllCaps="false"
+                android:textColor="@color/ug_azul_reflex"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

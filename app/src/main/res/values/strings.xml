@@ -3,6 +3,7 @@
 
     <!-- App -->
     <string name="app_name">Inventario Académico UG</string>
+    <string name="subtitulo_detalle">Información del elemento</string>
 
     <!-- MainActivity -->
     <string name="titulo_app">Inventario Académico UG</string>
@@ -44,10 +45,12 @@
     <string name="msg_guardado_exito">Elemento registrado correctamente</string>
 
     <!-- ListaItemsActivity -->
-    <string name="titulo_lista">Inventario</string>
-    <string name="hint_buscar">Buscar por nombre o categoría...</string>
-    <string name="btn_buscar">Buscar</string>
-    <string name="lista_vacia">No hay elementos registrados</string>
+    <string name="subtitulo_registro">Completa los datos del elemento</string>
+    <string name="label_nombre">Nombre del elemento</string>
+    <string name="label_categoria">Categoría</string>
+    <string name="label_cantidad">Cantidad</string>
+    <string name="label_ubicacion">Ubicación</string>
+    <string name="label_observacion">Observación</string>
 
     <!-- ArchivoHelper / Reporte (de main, no tocar) -->
     <string name="btn_guardar_interno">Guardar Interno</string>
@@ -69,15 +72,6 @@
     <string name="opcion_si">Sí</string>
     <string name="opcion_no">No</string>
 
-    <!-- Categorías para Spinner -->
-    <string-array name="categorias">
-        <item>Libro</item>
-        <item>Cuaderno</item>
-        <item>Equipo</item>
-        <item>Accesorio</item>
-        <item>Herramienta</item>
-        <item>Material de laboratorio</item>
-        <item>Otro</item>
-    </string-array>
+
 
 </resources>
