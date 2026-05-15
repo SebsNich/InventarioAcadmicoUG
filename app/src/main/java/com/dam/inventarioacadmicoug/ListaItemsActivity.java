@@ -68,9 +68,17 @@ public class ListaItemsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ItemInventario itemSeleccionado = listaFiltrada.get(position);
 
-                // Enviar el ID del item a DetalleItemActivity
+                // Enviar TODOS los datos usando las claves exactas que espera Denisse
                 Intent intent = new Intent(ListaItemsActivity.this, DetalleItemActivity.class);
-                intent.putExtra("item_id", itemSeleccionado.getId());
+
+                intent.putExtra("id", itemSeleccionado.getId());
+                intent.putExtra("nombre", itemSeleccionado.getNombre());
+                intent.putExtra("categoria", itemSeleccionado.getCategoria());
+                intent.putExtra("cantidad", itemSeleccionado.getCantidad());
+                intent.putExtra("ubicacion", itemSeleccionado.getUbicacion());
+                intent.putExtra("observacion", itemSeleccionado.getObservacion());
+                intent.putExtra("fecha", itemSeleccionado.getFechaRegistro());
+
                 startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.dam.inventarioacadmicoug;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,8 +17,11 @@ public class FormItemActivity extends AppCompatActivity {
     private EditText etNombre, etCategoria, etCantidad, etUbicacion, etObservacion;
     private Button btnGuardar;
 
-    // 1. Declarar el Helper de la Base de Datos
+    // 1. Declarar Helper de la Base de Datos
     private InventarioDbHelper dbHelper;
+
+    // Variable :: Se esta editando (-1) o no
+    private int idItemEditar = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,24 @@ public class FormItemActivity extends AppCompatActivity {
 
         // 2. Inicializar la base de datos
         dbHelper = new InventarioDbHelper(this);
+
+        // VAlidar si el intent trae datos
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("id")) {
+            idItemEditar = intent.getIntExtra("id", -1);
+
+            if (idItemEditar != -1) {
+                // Llenar los campos con los datos existentes
+                etNombre.setText(intent.getStringExtra("nombre"));
+                etCategoria.setText(intent.getStringExtra("categoria"));
+                etCantidad.setText(String.valueOf(intent.getIntExtra("cantidad", 0)));
+                etUbicacion.setText(intent.getStringExtra("ubicacion"));
+                etObservacion.setText(intent.getStringExtra("observacion"));
+
+                // Cambiar el texto del botón para que sea intuitivo
+                btnGuardar.setText("Actualizar Registro");
+            }
+        }
 
         btnGuardar.setOnClickListener(v -> guardarItem());
     }
@@ -71,21 +93,39 @@ public class FormItemActivity extends AppCompatActivity {
             return;
         }
 
-        // 3. Generar la fecha actual para el registro
-        String fechaRegistro = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(new Date());
+        // Validación de nueva inserción o edición
+        if (idItemEditar == -1) {
+            // Modo Crear Nuevo
+            // 3. Generar la fecha actual para el registro
+            String fechaRegistro = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(new Date());
 
-        // 4. Guardar en SQLite llamando a tu Backend
-        long resultado = dbHelper.insertarItem(nombre, categoria, cantidad, ubicacion, observacion, fechaRegistro);
+            // 4. Guardar en SQLite
+            long resultado = dbHelper.insertarItem(nombre, categoria, cantidad, ubicacion, observacion, fechaRegistro);
 
-        if (resultado != -1) {
-            confirmarGuardado();
+            if (resultado != -1) {
+                confirmarGuardado("Elemento registrado correctamente");
+            } else {
+                Toast.makeText(this, "Error al guardar en la base de datos", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, "Error al guardar en la base de datos", Toast.LENGTH_SHORT).show();
+            // Modo Actualizar
+            // Usamos el método actualizarItem de la base de datos
+            int filasAfectadas = dbHelper.actualizarItem(idItemEditar, nombre, categoria, cantidad, ubicacion, observacion);
+
+            if (filasAfectadas > 0) {
+                confirmarGuardado("Elemento actualizado correctamente");
+            } else {
+                Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    private void confirmarGuardado() {
-        Toast.makeText(this, R.string.msg_guardado_exito, Toast.LENGTH_SHORT).show();
-        finish(); // Regresa a la pantalla anterior
+    private void confirmarGuardado(String mensaje) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ListaItemsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
+        finish();
     }
 }
