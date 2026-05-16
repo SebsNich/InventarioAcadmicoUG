@@ -1,67 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#FFFFFF"
-    android:padding="12dp">
+    android:background="@drawable/bg_card"
+    android:padding="@dimen/spacing_md"
+    android:gravity="center_vertical">
 
-    <!-- Franja de color a la izquierda -->
+    <!-- Franja izquierda color UG -->
     <View
-        android:layout_width="5dp"
-        android:layout_height="match_parent"
-        android:background="#1565C0"
-        android:layout_marginRight="12dp"/>
+        android:layout_width="4dp"
+        android:layout_height="56dp"
+        android:background="@color/ug_amarillo"
+        android:layout_marginEnd="@dimen/spacing_md"/>
 
-    <!-- Contenido del item -->
+    <!-- Contenido -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <!-- Nombre del material -->
         <TextView
             android:id="@+id/tvNombreItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold"
-            android:textColor="#1A237E"/>
+            android:textColor="@color/ug_azul_reflex"/>
 
-        <!-- Categoría -->
         <TextView
             android:id="@+id/tvCategoriaItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textColor="#1976D2"
+            android:textSize="12sp"
+            android:textColor="@color/ug_azul_process"
             android:layout_marginTop="2dp"/>
 
-        <!-- Cantidad -->
         <TextView
             android:id="@+id/tvCantidadItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="#FFFFFF"
-            android:background="#42A5F5"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_badge_blue"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
             android:layout_marginTop="4dp"/>
+
     </LinearLayout>
 
-    <!-- Flecha a la derecha -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="›"
-        android:textSize="28sp"
-        android:textColor="#BBDEFB"
-        android:layout_gravity="center_vertical"/>
+    <!-- Flecha -->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_chevron_right"
+        android:contentDescription="@string/btn_listar"/>
 
 </LinearLayout>

@@ -20,16 +20,13 @@ public class PreferenciasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferencias);
 
-        // Vincular vistas con el XML
         etNombreEstudiante    = findViewById(R.id.etNombreEstudiante);
         etParalelo            = findViewById(R.id.etParalelo);
         switchSaludo          = findViewById(R.id.switchSaludo);
         btnGuardarPreferencias = findViewById(R.id.btnGuardarPreferencias);
 
-        // Cargar valores ya guardados para que el usuario los vea al abrir
         cargarPreferencias();
 
-        // Guardar cuando presiona el botón
         btnGuardarPreferencias.setOnClickListener(v -> guardarPreferencias());
     }
 
@@ -53,14 +50,12 @@ public class PreferenciasActivity extends AppCompatActivity {
         String paralelo = etParalelo.getText().toString().trim();
         boolean saludo  = switchSaludo.isChecked();
 
-        // Validación mínima: el nombre es requerido
         if (nombre.isEmpty()) {
             etNombreEstudiante.setError(getString(R.string.msg_nombre_requerido));
             etNombreEstudiante.requestFocus();
             return;
         }
 
-        // Guardar en SharedPreferences
         SharedPreferences prefs = getSharedPreferences(
                 MainActivity.PREFS_NOMBRE, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -72,7 +67,6 @@ public class PreferenciasActivity extends AppCompatActivity {
         Toast.makeText(this, getString(R.string.msg_preferencias_guardadas),
                 Toast.LENGTH_SHORT).show();
 
-        // Volver a MainActivity para que se actualice el saludo
         finish();
     }
 }

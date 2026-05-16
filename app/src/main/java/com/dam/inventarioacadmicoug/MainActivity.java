@@ -14,6 +14,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String PREFS_NOMBRE = "prefs_inventario";
@@ -22,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String KEY_SALUDO   = "mostrar_saludo";
 
     private TextView tvSaludo;
-
-    // Ahora son View porque en el XML son LinearLayout, no Button
     private View btnRegistrar, btnListar, btnPreferencias, btnReporte, btnWebUG;
 
     @Override
@@ -38,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Vincular vistas
         tvSaludo        = findViewById(R.id.tvSaludo);
         btnRegistrar    = findViewById(R.id.btnRegistrar);
         btnListar       = findViewById(R.id.btnListar);
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         btnReporte      = findViewById(R.id.btnReporte);
         btnWebUG        = findViewById(R.id.btnWebUG);
 
-        // Listeners (igual que antes, solo cambia el tipo de v)
         btnRegistrar.setOnClickListener(v -> abrirRegistro());
         btnListar.setOnClickListener(v -> abrirLista());
         btnPreferencias.setOnClickListener(v -> abrirPreferencias());
@@ -79,6 +80,70 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void generarReporte() {
+        try {
+            SharedPreferences prefs = getSharedPreferences(PREFS_NOMBRE, MODE_PRIVATE);
+            String nombreEstudiante = prefs.getString(KEY_NOMBRE, "No especificado");
+            String paralelo         = prefs.getString(KEY_PARALELO, "No especificado");
+
+            InventarioDbHelper dbHelper = new InventarioDbHelper(this);
+            List<ItemInventario> items = dbHelper.obtenerTodosLosItems();
+
+            String fecha = new SimpleDateFormat(
+                    "dd/MM/yyyy HH:mm", Locale.getDefault()
+            ).format(new Date());
+
+            // Construir texto del reporte
+            StringBuilder sb = new StringBuilder();
+            sb.append("===================================\n");
+            sb.append("   REPORTE DE INVENTARIO ACADÉMICO UG    \n");
+            sb.append("===================================\n\n");
+            sb.append("Responsable : ").append(nombreEstudiante).append("\n");
+            sb.append("Paralelo    : ").append(paralelo).append("\n");
+            sb.append("Fecha       : ").append(fecha).append("\n");
+            sb.append("Total items : ").append(items.size()).append("\n");
+            sb.append("\n------------------------------------------\n");
+            sb.append("  DETALLE DEL INVENTARIO\n");
+            sb.append("------------------------------------------\n\n");
+
+            if (items.isEmpty()) {
+                sb.append("No hay elementos registrados.\n");
+            } else {
+                int numero = 1;
+                for (ItemInventario item : items) {
+                    sb.append(numero).append(". ").append(item.getNombre()).append("\n");
+                    sb.append("   Categoría  : ").append(item.getCategoria()).append("\n");
+                    sb.append("   Cantidad   : ").append(item.getCantidad()).append("\n");
+                    sb.append("   Ubicación  : ").append(
+                            item.getUbicacion() != null && !item.getUbicacion().isEmpty()
+                                    ? item.getUbicacion() : "—").append("\n");
+                    sb.append("   Observación: ").append(
+                            item.getObservacion() != null && !item.getObservacion().isEmpty()
+                                    ? item.getObservacion() : "—").append("\n");
+                    sb.append("   Fecha reg. : ").append(item.getFechaRegistro()).append("\n\n");
+                    numero++;
+                }
+            }
+
+            sb.append("===================================\n");
+            sb.append("  Universidad de Guayaquil - Carrera SW  \n");
+            sb.append("===================================\n");
+
+            String textoReporte = sb.toString();
+
+            ArchivoHelper.guardarResumenInterno(this, textoReporte);
+
+            ArchivoHelper.exportarReporteExterno(this, textoReporte);
+
+            ArchivoHelper.compartirReporte(this);
+
+        } catch (Exception e) {
+            Toast.makeText(this,
+                    getString(R.string.msg_error_reporte),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void abrirRegistro() {
         startActivity(new Intent(this, FormItemActivity.class));
     }
@@ -91,40 +156,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, PreferenciasActivity.class));
     }
 
-    private void generarReporte() {
-        try {
-            SharedPreferences prefs = getSharedPreferences(PREFS_NOMBRE, MODE_PRIVATE);
-            String nombreEstudiante = prefs.getString(KEY_NOMBRE, "Estudiante");
-
-            InventarioDbHelper dbHelper = new InventarioDbHelper(this);
-            java.util.List<ItemInventario> items = dbHelper.obtenerTodosLosItems();
-
-            StringBuilder reporte = new StringBuilder();
-            reporte.append("=== REPORTE DE INVENTARIO ACADÉMICO UG ===\n");
-            reporte.append("Responsable: ").append(nombreEstudiante).append("\n");
-            reporte.append("Fecha: ").append(
-                    new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm",
-                            java.util.Locale.getDefault()).format(new java.util.Date())
-            ).append("\n");
-            reporte.append("Total de elementos: ").append(items.size()).append("\n");
-            reporte.append("------------------------------------------\n");
-            for (ItemInventario item : items) {
-                reporte.append("• ").append(item.getNombre())
-                        .append(" | ").append(item.getCategoria())
-                        .append(" | Cant: ").append(item.getCantidad()).append("\n");
-            }
-
-
-
-            Toast.makeText(this, getString(R.string.msg_reporte_generado), Toast.LENGTH_LONG).show();
-
-        } catch (Exception e) {
-            Toast.makeText(this, getString(R.string.msg_error_reporte), Toast.LENGTH_SHORT).show();
-        }
-    }
-
     private void abrirWebUG() {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ug.edu.ec")));
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.ug.edu.ec")));
     }
 }
-

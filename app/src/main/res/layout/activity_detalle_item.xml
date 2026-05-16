@@ -192,36 +192,39 @@
 
             </LinearLayout>
 
+
             <Button
                 android:id="@+id/btnGuardarInterno"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="@dimen/spacing_sm"
-                android:background="@drawable/bg_card_dark"
+                android:background="@drawable/bg_btn_marino"
                 android:text="@string/btn_guardar_interno"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
 
+
             <Button
                 android:id="@+id/btnExportar"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="@dimen/spacing_sm"
-                android:background="@drawable/bg_card_dark"
+                android:background="@drawable/bg_btn_process"
                 android:text="@string/btn_exportar_reporte"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
 
+
             <Button
                 android:id="@+id/btnCompartir"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginBottom="@dimen/spacing_sm"
-                android:background="@drawable/bg_card_dark"
+                android:background="@drawable/bg_btn_claro"
                 android:text="@string/btn_compartir_reporte"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
