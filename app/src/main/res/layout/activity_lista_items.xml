@@ -1,55 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F0F4F8">
+    android:background="@color/ug_fondo">
 
-    <!-- Encabezado azul -->
+    <!-- Header igual al resto de pantallas -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1565C0"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:background="@color/ug_azul_reflex"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xl">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📦 Inventario UG"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:text="@string/titulo_lista"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_size"
+            android:layout_marginTop="15dp"
             android:textStyle="bold"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Materiales registrados"
-            android:textColor="#BBDEFB"
-            android:textSize="13sp"/>
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:text="@string/subtitulo_lista"
+            android:textColor="@color/ug_azul_suave"
+            android:textSize="@dimen/subtitle_size"/>
     </LinearLayout>
 
     <!-- Barra de búsqueda -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1976D2"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="12dp">
+        android:background="@color/ug_azul_marino"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingEnd="@dimen/spacing_md"
+        android:paddingBottom="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_sm"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
         <EditText
             android:id="@+id/etBuscar"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="🔍  Buscar por nombre o categoría..."
+            android:layout_weight="1"
+            android:hint="@string/hint_buscar"
+            android:autofillHints="off"
             android:inputType="text"
-            android:background="#FFFFFF"
-            android:padding="10dp"
+            android:background="@drawable/bg_search"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:textSize="14sp"
-            android:textColor="#212121"
-            android:textColorHint="#9E9E9E"/>
+            android:textColor="@color/black"
+            android:textColorHint="@color/ug_azul_suave"
+            android:layout_marginEnd="@dimen/spacing_sm"/>
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_btn_amarillo"
+            android:text="@string/btn_buscar"
+            android:textAllCaps="false"
+            android:textColor="@color/ug_azul_reflex"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"/>
+
     </LinearLayout>
 
     <!-- Lista -->
@@ -58,17 +82,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="#DDEEFF"
-        android:dividerHeight="1dp"/>
+        android:divider="@color/ug_fondo"
+        android:dividerHeight="6dp"
+        android:padding="@dimen/spacing_sm"
+        android:clipToPadding="false"/>
 
     <!-- Mensaje vacío -->
     <TextView
         android:id="@+id/tvVacio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="😕 No se encontraron materiales"
+        android:text="@string/lista_vacia"
         android:textAlignment="center"
-        android:textColor="#9E9E9E"
+        android:textColor="@color/ug_azul_suave"
         android:textSize="16sp"
         android:padding="40dp"
         android:visibility="gone"/>

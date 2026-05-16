@@ -16,74 +16,69 @@ public class FormItemActivity extends AppCompatActivity {
 
     private EditText etNombre, etCategoria, etCantidad, etUbicacion, etObservacion;
     private Button btnGuardar;
-
+    private int idItem = -1;
     // 1. Declarar Helper de la Base de Datos
     private InventarioDbHelper dbHelper;
 
     // Variable :: Se esta editando (-1) o no
     private int idItemEditar = -1;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_item);
 
-        // Inicializar vistas
-        etNombre = findViewById(R.id.etNombre);
-        etCategoria = findViewById(R.id.etCategoria);
-        etCantidad = findViewById(R.id.etCantidad);
-        etUbicacion = findViewById(R.id.etUbicacion);
+        // Vincular vistas
+        etNombre      = findViewById(R.id.etNombre);
+        etCategoria   = findViewById(R.id.etCategoria);
+        etCantidad    = findViewById(R.id.etCantidad);
+        etUbicacion   = findViewById(R.id.etUbicacion);
         etObservacion = findViewById(R.id.etObservacion);
-        btnGuardar = findViewById(R.id.btnGuardar);
+        btnGuardar    = findViewById(R.id.btnGuardar);
 
-        // 2. Inicializar la base de datos
-        dbHelper = new InventarioDbHelper(this);
 
-        // VAlidar si el intent trae datos
+
+        // Leer Intent — si viene con datos es modo EDITAR
         Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("id")) {
-            idItemEditar = intent.getIntExtra("id", -1);
+        idItem = intent.getIntExtra("id", -1);
 
-            if (idItemEditar != -1) {
-                // Llenar los campos con los datos existentes
-                etNombre.setText(intent.getStringExtra("nombre"));
-                etCategoria.setText(intent.getStringExtra("categoria"));
-                etCantidad.setText(String.valueOf(intent.getIntExtra("cantidad", 0)));
-                etUbicacion.setText(intent.getStringExtra("ubicacion"));
-                etObservacion.setText(intent.getStringExtra("observacion"));
-
-                // Cambiar el texto del botón para que sea intuitivo
-                btnGuardar.setText("Actualizar Registro");
-            }
+        if (idItem != -1) {
+            // Modo editar — cargar datos en los campos
+            etNombre.setText(intent.getStringExtra("nombre"));
+            etCategoria.setText(intent.getStringExtra("categoria"));
+            etCantidad.setText(String.valueOf(intent.getIntExtra("cantidad", 0)));
+            etUbicacion.setText(intent.getStringExtra("ubicacion"));
+            etObservacion.setText(intent.getStringExtra("observacion"));
         }
 
         btnGuardar.setOnClickListener(v -> guardarItem());
     }
 
     private void guardarItem() {
-        // Obtener textos y limpiar espacios en blanco
-        String nombre = etNombre.getText().toString().trim();
+        String nombre   = etNombre.getText().toString().trim();
         String categoria = etCategoria.getText().toString().trim();
-        String cantidadTxt = etCantidad.getText().toString().trim();
+        String cantidadStr = etCantidad.getText().toString().trim();
         String ubicacion = etUbicacion.getText().toString().trim();
         String observacion = etObservacion.getText().toString().trim();
 
-        // Validar nombre obligatorio
+        // Validaciones
         if (nombre.isEmpty()) {
             etNombre.setError(getString(R.string.err_obligatorio));
             return;
         }
-
-        // Validar categoría obligatoria
         if (categoria.isEmpty()) {
             etCategoria.setError(getString(R.string.err_obligatorio));
             return;
         }
+        if (cantidadStr.isEmpty()) {
+            etCantidad.setError(getString(R.string.err_obligatorio));
+            return;
+        }
 
-        // Validar cantidad
         int cantidad;
         try {
-            cantidad = Integer.parseInt(cantidadTxt);
+            cantidad = Integer.parseInt(cantidadStr);
             if (cantidad <= 0) {
                 etCantidad.setError(getString(R.string.err_cantidad));
                 return;
@@ -93,31 +88,27 @@ public class FormItemActivity extends AppCompatActivity {
             return;
         }
 
-        // Validación de nueva inserción o edición
-        if (idItemEditar == -1) {
-            // Modo Crear Nuevo
-            // 3. Generar la fecha actual para el registro
-            String fechaRegistro = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault()).format(new Date());
+        InventarioDbHelper dbHelper = new InventarioDbHelper(this);
 
-            // 4. Guardar en SQLite
-            long resultado = dbHelper.insertarItem(nombre, categoria, cantidad, ubicacion, observacion, fechaRegistro);
-
-            if (resultado != -1) {
-                confirmarGuardado("Elemento registrado correctamente");
-            } else {
-                Toast.makeText(this, "Error al guardar en la base de datos", Toast.LENGTH_SHORT).show();
-            }
+        if (idItem == -1) {
+            // INSERTAR nuevo
+            String fecha = new java.text.SimpleDateFormat(
+                    "dd/MM/yyyy HH:mm", java.util.Locale.getDefault())
+                    .format(new java.util.Date());
+            dbHelper.insertarItem(nombre, categoria, cantidad,
+                    ubicacion, observacion, fecha);
+            Toast.makeText(this, getString(R.string.msg_guardado_exito),
+                    Toast.LENGTH_SHORT).show();
         } else {
-            // Modo Actualizar
-            // Usamos el método actualizarItem de la base de datos
-            int filasAfectadas = dbHelper.actualizarItem(idItemEditar, nombre, categoria, cantidad, ubicacion, observacion);
-
-            if (filasAfectadas > 0) {
-                confirmarGuardado("Elemento actualizado correctamente");
-            } else {
-                Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show();
-            }
+            // ACTUALIZAR existente
+            dbHelper.actualizarItem(idItem, nombre, categoria,
+                    cantidad, ubicacion, observacion);
+            Toast.makeText(this, "Elemento actualizado correctamente",
+                    Toast.LENGTH_SHORT).show();
         }
+        setResult(RESULT_OK);
+        finish(); // Volver a la lista
+
     }
 
     private void confirmarGuardado(String mensaje) {
@@ -125,6 +116,7 @@ public class FormItemActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListaItemsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+
 
         finish();
     }
